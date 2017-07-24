@@ -1,3 +1,9 @@
+**/.*.swp
+firmware/**/*.o
+firmware/**/*.lst
+firmware/**/*.map
+firmware/**/*.elf
+firmware/**/*.hex
 hardware/*-cache.lib
 hardware/**/*.bak
 hardware/**/*.bck
