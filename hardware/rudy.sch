@@ -35,7 +35,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "RUDY - the Random USB Device"
-Date "2017-07-22"
+Date "2017-08-09"
 Rev "A"
 Comp "Sven Gregori <sven@craplab.fi>"
 Comment1 ""
@@ -82,7 +82,7 @@ U 1 1 56DA16B2
 P 5900 3150
 F 0 "C1" H 5925 3250 50  0000 L CNN
 F 1 "100n" H 5925 3050 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5938 3000 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0805" H 5938 3000 50  0001 C CNN
 F 3 "" H 5900 3150 50  0000 C CNN
 	1    5900 3150
 	1    0    0    -1  
@@ -249,7 +249,7 @@ U 1 1 59695F92
 P 1750 3950
 F 0 "R4" V 1830 3950 50  0000 C CNN
 F 1 "1M" V 1750 3950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 1680 3950 50  0001 C CNN
+F 2 "Resistors_SMD:R_0805" V 1680 3950 50  0001 C CNN
 F 3 "" H 1750 3950 50  0000 C CNN
 	1    1750 3950
 	1    0    0    -1  
@@ -257,34 +257,34 @@ $EndComp
 $Comp
 L R R2
 U 1 1 59695FED
-P 2350 3350
-F 0 "R2" V 2430 3350 50  0000 C CNN
-F 1 "68R" V 2350 3350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2280 3350 50  0001 C CNN
-F 3 "" H 2350 3350 50  0000 C CNN
-	1    2350 3350
+P 3150 3350
+F 0 "R2" V 3230 3350 50  0000 C CNN
+F 1 "68R" V 3150 3350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 3080 3350 50  0001 C CNN
+F 3 "" H 3150 3350 50  0000 C CNN
+	1    3150 3350
 	0    1    1    0   
 $EndComp
 $Comp
 L R R3
 U 1 1 59696022
-P 2350 3550
-F 0 "R3" V 2430 3550 50  0000 C CNN
-F 1 "1k5" V 2350 3550 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2280 3550 50  0001 C CNN
-F 3 "" H 2350 3550 50  0000 C CNN
-	1    2350 3550
+P 3150 3550
+F 0 "R3" V 3230 3550 50  0000 C CNN
+F 1 "1k5" V 3150 3550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 3080 3550 50  0001 C CNN
+F 3 "" H 3150 3550 50  0000 C CNN
+	1    3150 3550
 	0    1    1    0   
 $EndComp
 $Comp
 L R R1
 U 1 1 5969606A
-P 2350 3150
-F 0 "R1" V 2430 3150 50  0000 C CNN
-F 1 "68R" V 2350 3150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 2280 3150 50  0001 C CNN
-F 3 "" H 2350 3150 50  0000 C CNN
-	1    2350 3150
+P 3150 3150
+F 0 "R1" V 3230 3150 50  0000 C CNN
+F 1 "68R" V 3150 3150 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 3080 3150 50  0001 C CNN
+F 3 "" H 3150 3150 50  0000 C CNN
+	1    3150 3150
 	0    1    1    0   
 $EndComp
 $Comp
@@ -315,7 +315,7 @@ U 1 1 59697689
 P 2700 1950
 F 0 "C2" H 2725 2050 50  0000 L CNN
 F 1 "10u" H 2725 1850 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Hand" H 2738 1800 50  0001 C CNN
+F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow" H 2738 1800 50  0001 C CNN
 F 3 "" H 2700 1950 50  0000 C CNN
 	1    2700 1950
 	1    0    0    -1  
@@ -326,7 +326,7 @@ U 1 1 596976FA
 P 4000 1950
 F 0 "C3" H 4025 2050 50  0000 L CNN
 F 1 "10u" H 4025 1850 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Hand" H 4038 1800 50  0001 C CNN
+F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow" H 4038 1800 50  0001 C CNN
 F 3 "" H 4000 1950 50  0000 C CNN
 	1    4000 1950
 	1    0    0    -1  
@@ -358,8 +358,8 @@ L C C4
 U 1 1 59729D6D
 P 2600 6350
 F 0 "C4" H 2625 6450 50  0000 L CNN
-F 1 "C" H 2625 6250 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 2638 6200 50  0001 C CNN
+F 1 "22p" H 2625 6250 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 2638 6200 50  0001 C CNN
 F 3 "" H 2600 6350 50  0000 C CNN
 	1    2600 6350
 	1    0    0    -1  
@@ -369,8 +369,8 @@ L C C5
 U 1 1 59729E30
 P 3500 6350
 F 0 "C5" H 3525 6450 50  0000 L CNN
-F 1 "C" H 3525 6250 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3538 6200 50  0001 C CNN
+F 1 "22p" H 3525 6250 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 3538 6200 50  0001 C CNN
 F 3 "" H 3500 6350 50  0000 C CNN
 	1    3500 6350
 	1    0    0    -1  
@@ -402,30 +402,30 @@ VCC
 $Comp
 L ZENER D1
 U 1 1 5972B2E0
-P 2700 4250
-F 0 "D1" H 2700 4350 50  0000 C CNN
-F 1 "3V6" H 2700 4150 50  0000 C CNN
-F 2 "Diodes_SMD:D_MiniMELF_Handsoldering" H 2700 4250 50  0001 C CNN
-F 3 "" H 2700 4250 50  0000 C CNN
-	1    2700 4250
+P 2400 4250
+F 0 "D1" H 2400 4350 50  0000 C CNN
+F 1 "3V6" H 2400 4150 50  0000 C CNN
+F 2 "Diodes_SMD:D_MiniMELF" H 2400 4250 50  0001 C CNN
+F 3 "" H 2400 4250 50  0000 C CNN
+	1    2400 4250
 	0    1    1    0   
 $EndComp
 $Comp
 L ZENER D2
 U 1 1 5972B3B7
-P 3000 4250
-F 0 "D2" H 3000 4350 50  0000 C CNN
-F 1 "3V6" H 3000 4150 50  0000 C CNN
-F 2 "Diodes_SMD:D_MiniMELF_Handsoldering" H 3000 4250 50  0001 C CNN
-F 3 "" H 3000 4250 50  0000 C CNN
-	1    3000 4250
+P 2700 4250
+F 0 "D2" H 2700 4350 50  0000 C CNN
+F 1 "3V6" H 2700 4150 50  0000 C CNN
+F 2 "Diodes_SMD:D_MiniMELF" H 2700 4250 50  0001 C CNN
+F 3 "" H 2700 4250 50  0000 C CNN
+	1    2700 4250
 	0    1    1    0   
 $EndComp
-Text Label 3350 3350 0    60   ~ 0
+Text Label 3650 3350 0    60   ~ 0
 USB_D+
-Text Label 3350 3150 0    60   ~ 0
+Text Label 3650 3150 0    60   ~ 0
 USB_D-
-Text Label 3350 3550 0    60   ~ 0
+Text Label 3650 3550 0    60   ~ 0
 USB_RESET
 $Comp
 L GND #PWR07
@@ -445,17 +445,9 @@ XTAL2
 Wire Wire Line
 	6350 4200 6350 4100
 Wire Wire Line
-	3400 1650 3400 2350
+	3400 1650 3400 2600
 Wire Wire Line
-	3400 2350 3400 2400
-Wire Wire Line
-	3400 2400 3400 2600
-Wire Wire Line
-	1400 1350 1950 1350
-Wire Wire Line
-	1950 1350 2700 1350
-Wire Wire Line
-	2700 1350 3000 1350
+	1400 1350 3000 1350
 Wire Wire Line
 	2700 2100 2700 2350
 Wire Wire Line
@@ -469,9 +461,7 @@ Connection ~ 3400 2400
 Wire Wire Line
 	4000 1800 4000 1350
 Wire Wire Line
-	3800 1350 4000 1350
-Wire Wire Line
-	4000 1350 4300 1350
+	3800 1350 4300 1350
 Wire Wire Line
 	4300 1350 4300 1250
 Connection ~ 4000 1350
@@ -488,60 +478,34 @@ Connection ~ 1950 1350
 Wire Wire Line
 	1400 1650 1550 1650
 Wire Wire Line
-	1550 1650 1550 2050
-Wire Wire Line
-	1550 2050 1550 2200
+	1550 1650 1550 2200
 Wire Wire Line
 	1400 1550 1750 1550
 Wire Wire Line
-	1750 1550 1750 3350
-Wire Wire Line
-	1750 3350 1750 3800
-Wire Wire Line
-	2500 3550 3350 3550
-Wire Wire Line
-	2500 3350 3000 3350
-Wire Wire Line
-	3000 3350 3350 3350
-Wire Wire Line
-	2500 3150 2700 3150
-Wire Wire Line
-	2700 3150 3350 3150
+	1750 1550 1750 3800
 Wire Wire Line
 	1400 1450 1950 1450
 Wire Wire Line
-	1950 1450 1950 3150
-Wire Wire Line
-	1950 3150 1950 3550
-Wire Wire Line
-	1950 3550 2200 3550
-Wire Wire Line
-	2200 3150 1950 3150
+	1950 1450 1950 3550
 Connection ~ 1950 3150
-Wire Wire Line
-	2200 3350 1750 3350
 Connection ~ 1750 3350
 Wire Wire Line
-	1750 4100 1750 4600
+	1750 4100 1750 5200
 Wire Wire Line
-	1750 4600 1750 4900
+	2400 4050 2400 3150
+Connection ~ 2400 3150
 Wire Wire Line
-	1750 4900 1750 5200
+	2700 4050 2700 3350
+Connection ~ 2700 3350
 Wire Wire Line
-	2700 4050 2700 3150
-Connection ~ 2700 3150
+	2400 4450 2400 4600
 Wire Wire Line
-	3000 4050 3000 3350
-Connection ~ 3000 3350
-Wire Wire Line
-	2700 4450 2700 4600
-Wire Wire Line
-	2700 4600 1750 4600
+	2400 4600 1750 4600
 Connection ~ 1750 4600
 Wire Wire Line
-	3000 4450 3000 4900
+	2700 4450 2700 4900
 Wire Wire Line
-	3000 4900 1750 4900
+	2700 4900 1750 4900
 Connection ~ 1750 4900
 Wire Wire Line
 	1000 1850 1000 2050
@@ -551,24 +515,18 @@ Connection ~ 1550 2050
 Wire Wire Line
 	2600 6500 2600 6600
 Wire Wire Line
-	2600 6600 3100 6600
-Wire Wire Line
-	3100 6600 3500 6600
+	2600 6600 3500 6600
 Wire Wire Line
 	3500 6600 3500 6500
 Wire Wire Line
 	3100 6700 3100 6600
 Connection ~ 3100 6600
 Wire Wire Line
-	2100 5950 2600 5950
-Wire Wire Line
-	2600 5950 2900 5950
+	2100 5950 2900 5950
 Wire Wire Line
 	2600 5950 2600 6200
 Wire Wire Line
-	3200 5950 3500 5950
-Wire Wire Line
-	3500 5950 3950 5950
+	3200 5950 3950 5950
 Wire Wire Line
 	3500 5950 3500 6200
 Connection ~ 2600 5950
@@ -676,6 +634,18 @@ Text Notes 1300 7350 0    60   ~ 0
 Crystal and capacitor values depend on supply voltage.\nIf voltage regulator is omitted and whole system operates on 5V, crystal could be 16MHz.\nIf 3.3V voltage regulator is used, 16MHz is out of the ATmega's spec and may or may not\noperate stable. With 3.3V supply voltage, 13.3MHz is the limit of safe operating space, so\n12MHz or 12.8MHz might be the safest choice.
 Text Notes 4200 1750 0    60   ~ 0
 U1 and C3 can be omitted, and\nand JP1 shorted, if there is no\nneed for 3.3V supply voltage.
-Text Notes 3300 4400 0    60   ~ 0
+Text Notes 3000 4400 0    60   ~ 0
 D1 and D2 can be omitted if there is no\nneed for 5V supply voltage, and 3.3V\nregulator is always used. JP1 could be\nshorted accordingly then.
+Wire Wire Line
+	3300 3150 3650 3150
+Wire Wire Line
+	3300 3350 3650 3350
+Wire Wire Line
+	1750 3350 3000 3350
+Wire Wire Line
+	1950 3150 3000 3150
+Wire Wire Line
+	3300 3550 3650 3550
+Wire Wire Line
+	1950 3550 3000 3550
 $EndSCHEMATC
