@@ -1,0 +1,51 @@
+Source:,/home/sven/work/avr/rudy/hardware/rudy.sch
+Date:,Tue 22 Aug 2017 02:50:43 AM EEST
+Tool:,Eeschema 4.0.7-e1-6374~58~ubuntu16.04.1
+Generator:,/usr/share/doc/kicad/scripts/bom-in-python/bom_csv_grouped_by_value.py
+Component Count:,20
+
+Individual Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
+,,C1,100n,device:C,Capacitors_SMD:C_0805,
+,,C2,10u,device:CP,Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow,
+,,C3,10u,device:CP,Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow,
+,,C4,22p,device:C,Capacitors_SMD:C_0805,
+,,C5,22p,device:C,Capacitors_SMD:C_0805,
+,,D1,3V6,rudy-cache:ZENER,Diodes_SMD:D_SOD-323F,
+,,D2,3V6,rudy-cache:ZENER,Diodes_SMD:D_SOD-323F,
+,,IC1,ATMEGA328-P,rudy-cache:ATMEGA328-P,Housings_DIP:DIP-28_W7.62mm,
+,,JP1,JUMPER3,rudy-cache:JUMPER3,Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm,
+,,JP2,JUMPER,rudy-cache:JUMPER,Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm,
+,,P1,CONN1,conn:CONN_01X14,Socket_Strips:Socket_Strip_Straight_1x14_Pitch2.54mm,
+,,P2,CONN2,conn:CONN_01X14,Socket_Strips:Socket_Strip_Straight_1x14_Pitch2.54mm,
+,,P3,SERPROG,conn:CONN_02X03,Connect:IDC_Header_Straight_6pins,
+,,P4,USB_B,conn:USB_B,Connect:USB_Mini-B,
+,,R1,68R,device:R,Resistors_SMD:R_0805,
+,,R2,68R,device:R,Resistors_SMD:R_0805,
+,,R3,1k5,device:R,Resistors_SMD:R_0805,
+,,R4,1M,device:R,Resistors_SMD:R_0805,
+,,U1,LD1117S33TR,regul:LD1117S33TR,TO_SOT_Packages_SMD:SOT-223,
+,,Y1,Crystal,device:Crystal,Crystals:Crystal_HC49-U_Vertical,
+
+
+
+Collated Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
+1,1,C1,100n,device:C,Capacitors_SMD:C_0805,
+2,2,"C2, C3",10u,device:CP,Capacitors_Tantalum_SMD:CP_Tantalum_Case-A_EIA-3216-18_Reflow,
+3,2,"C4, C5",22p,device:C,Capacitors_SMD:C_0805,
+4,2,"D1, D2",3V6,rudy-cache:ZENER,Diodes_SMD:D_SOD-323F,
+5,1,IC1,ATMEGA328-P,rudy-cache:ATMEGA328-P,Housings_DIP:DIP-28_W7.62mm,
+6,1,JP1,JUMPER3,rudy-cache:JUMPER3,Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm,
+7,1,JP2,JUMPER,rudy-cache:JUMPER,Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm,
+8,1,P1,CONN1,conn:CONN_01X14,Socket_Strips:Socket_Strip_Straight_1x14_Pitch2.54mm,
+9,1,P2,CONN2,conn:CONN_01X14,Socket_Strips:Socket_Strip_Straight_1x14_Pitch2.54mm,
+10,1,P3,SERPROG,conn:CONN_02X03,Connect:IDC_Header_Straight_6pins,
+11,1,P4,USB_B,conn:USB_B,Connect:USB_Mini-B,
+12,2,"R1, R2",68R,device:R,Resistors_SMD:R_0805,
+13,1,R3,1k5,device:R,Resistors_SMD:R_0805,
+14,1,R4,1M,device:R,Resistors_SMD:R_0805,
+15,1,U1,LD1117S33TR,regul:LD1117S33TR,TO_SOT_Packages_SMD:SOT-223,
+16,1,Y1,Crystal,device:Crystal,Crystals:Crystal_HC49-U_Vertical,
