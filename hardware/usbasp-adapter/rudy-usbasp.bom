@@ -1,0 +1,28 @@
+Source:,/home/sven/work/avr/rudy/hardware/usbasp-adapter/rudy-usbasp.sch
+Date:,Tue 22 Aug 2017 03:22:35 AM EEST
+Tool:,Eeschema 4.0.7-e1-6374~58~ubuntu16.04.1
+Generator:,/usr/share/doc/kicad/scripts/bom-in-python/bom_csv_grouped_by_value.py
+Component Count:,8
+
+Individual Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
+,,D1,LED,device:LED,LEDs:LED_0805,
+,,D2,LED,device:LED,LEDs:LED_0805,
+,,J1,CONN_01X14,conn:CONN_01X14,Pin_Headers:Pin_Header_Straight_1x14_Pitch2.54mm,
+,,J2,CONN_01X14,conn:CONN_01X14,Pin_Headers:Pin_Header_Straight_1x14_Pitch2.54mm,
+,,J3,ISP 6pin,conn:CONN_02X03,Connect:IDC_Header_Straight_6pins,
+,,J4,ISP 10pin,conn:CONN_02X05,Connect:IDC_Header_Straight_10pins,
+,,R1,120,device:R,Resistors_SMD:R_0805,
+,,R2,120,device:R,Resistors_SMD:R_0805,
+
+
+
+Collated Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
+1,2,"D1, D2",LED,device:LED,LEDs:LED_0805,
+2,2,"J1, J2",CONN_01X14,conn:CONN_01X14,Pin_Headers:Pin_Header_Straight_1x14_Pitch2.54mm,
+3,1,J3,ISP 6pin,conn:CONN_02X03,Connect:IDC_Header_Straight_6pins,
+4,1,J4,ISP 10pin,conn:CONN_02X05,Connect:IDC_Header_Straight_10pins,
+5,2,"R1, R2",120,device:R,Resistors_SMD:R_0805,
