@@ -8,8 +8,10 @@ RUDY is a test and play-around device for USB development, using the [Objecvtive
     * ~~create schematic~~
     * ~~create PCB design~~
     * ~~order PCB from OSH Park~~
-    * solder first prototype
+    * ~~solder first prototype~~
 * write firmware examples
+    * ~~Hello USB~~
+    * port USBasp programmer
     * MIDI example (see also [4chord MIDI](https://github.com/sgreg/4chord-midi))
     * simple HID example
     * custom class example
@@ -18,4 +20,6 @@ RUDY is a test and play-around device for USB development, using the [Objecvtive
     * libusb test code in C
     * communication tool in Python
     * communication tool for Android
+* think about some extension boards
+    * USBasp adapter w/ both 6pin and 10pin IDC connector
 
