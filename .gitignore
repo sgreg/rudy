@@ -4,8 +4,7 @@ firmware/**/*.lst
 firmware/**/*.map
 firmware/**/*.elf
 firmware/**/*.hex
-hardware/*-cache.lib
 hardware/**/*.bak
 hardware/**/*.bck
-hardware/*.kicad_pcb-bak
-hardware/_autosave*.kicad_pcb
+hardware/**/*.kicad_pcb-bak
+hardware/**/_autosave*.kicad_pcb
