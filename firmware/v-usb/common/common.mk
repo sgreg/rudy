@@ -51,7 +51,9 @@ OBJCOPY = avr-objcopy
 SIZE = avr-size
 AVRDUDE = avrdude
 
-CFLAGS += -g -Os -std=gnu99 -I. -I$(COMMON)/\
+INCLUDES = -I. -I$(COMMON)
+
+CFLAGS += -g -Os -std=gnu99 $(INCLUDES)\
 -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums \
 -Wall -Wextra -Wstrict-prototypes \
 -DF_CPU=$(F_CPU) -mmcu=$(MCU) 
@@ -75,6 +77,9 @@ $(PROGRAM).elf: $(BUILD_OBJS)
 
 .c.o: $(USBCONFIG)
 	$(CC) -c $(CFLAGS) $(ASFLAGS) $< -o $@
+
+.S.o:
+	$(CC) -c $(CFLAGS) -x assembler-with-cpp $(ASFLAGS_ASM) $< -o $@
 
 $(USBDRV): $(USBDRV_SRC) $(USBCONFIG)
 	$(CC) -c $(CFLAGS) $< -o $@
