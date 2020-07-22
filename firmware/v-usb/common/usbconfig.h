@@ -10,16 +10,12 @@
 /*
  * Based on vusb-20121206/usbdrv/usbconfig-prototype.h
  * Adjusted for RUDY - the Random USB Device
- * This file defines all common and default values.
- * Each example can override these settings with the following steps:
- *      1. add "CLAGS += -DHAS_CONFIG_OVERRIDES" in its Makefile
- *      2. create usbconfig_overrides.h file for the exaple
- *      3. #undef <CONFIG_DEFINE>
- *      4. #define <CONFIG_DEFINE> <NEW_VALUE>
  */
 
 #ifndef __usbconfig_h_included__
 #define __usbconfig_h_included__
+
+#include <usbconfig-rudy.h>
 
 /* ---------------------------- Hardware Config ---------------------------- */
 
@@ -72,12 +68,12 @@
 
 /* --------------------------- Functional Range ---------------------------- */
 
-#define USB_CFG_HAVE_INTRIN_ENDPOINT    1
+#define USB_CFG_HAVE_INTRIN_ENDPOINT    RUDY_HAVE_INTRIN_ENDPOINT
 /* Define this to 1 if you want to compile a version with two endpoints: The
  * default control endpoint 0 and an interrupt-in endpoint (any other endpoint
  * number).
  */
-#define USB_CFG_HAVE_INTRIN_ENDPOINT3   0
+#define USB_CFG_HAVE_INTRIN_ENDPOINT3   RUDY_HAVE_INTRIN_ENDPOINT3
 /* Define this to 1 if you want to compile a version with three endpoints: The
  * default control endpoint 0, an interrupt-in endpoint 3 (or the number
  * configured below) and a catch-all default interrupt-in endpoint as above.
@@ -121,18 +117,18 @@
  * The value is in milliamperes. [It will be divided by two since USB
  * communicates power requirements in units of 2 mA.]
  */
-#define USB_CFG_IMPLEMENT_FN_WRITE      1
+#define USB_CFG_IMPLEMENT_FN_WRITE      RUDY_IMPLEMENT_FN_WRITE
 /* Set this to 1 if you want usbFunctionWrite() to be called for control-out
  * transfers. Set it to 0 if you don't need it and want to save a couple of
  * bytes.
  */
-#define USB_CFG_IMPLEMENT_FN_READ       1
+#define USB_CFG_IMPLEMENT_FN_READ       RUDY_IMPLEMENT_FN_READ
 /* Set this to 1 if you need to send control replies which are generated
  * "on the fly" when usbFunctionRead() is called. If you only want to send
  * data from a static buffer, set it to 0 and return the data from
  * usbFunctionSetup(). This saves a couple of bytes.
  */
-#define USB_CFG_IMPLEMENT_FN_WRITEOUT   0
+#define USB_CFG_IMPLEMENT_FN_WRITEOUT   RUDY_IMPLEMENT_FN_WRITEOUT
 /* Define this to 1 if you want to use interrupt-out (or bulk out) endpoints.
  * You must implement the function usbFunctionWriteOut() which receives all
  * interrupt/bulk data sent to any endpoint other than 0. The endpoint number
@@ -216,7 +212,7 @@
 
 /* -------------------------- Device Description --------------------------- */
 
-#define  USB_CFG_VENDOR_ID       0x09, 0x12 /* = 0x1209 = pid.codes */
+#define  USB_CFG_VENDOR_ID       RUDY_VENDOR_ID
 /* USB vendor ID for the device, low byte first. If you have registered your
  * own Vendor ID, define it here. Otherwise you may use one of obdev's free
  * shared VID/PID pairs. Be sure to read USB-IDs-for-free.txt for rules!
@@ -225,7 +221,7 @@
  * with libusb: 0x16c0/0x5dc.  Use this VID/PID pair ONLY if you understand
  * the implications!
  */
-#define  USB_CFG_DEVICE_ID       0x0b, 0xb0 /* = 0xb00b = CrapLab RUDY */
+#define  USB_CFG_DEVICE_ID       RUDY_DEVICE_ID
 /* This is the ID of the product, low byte first. It is interpreted in the
  * scope of the vendor ID. If you have registered your own VID with usb.org
  * or if you have licensed a PID from somebody else, define it here. Otherwise
@@ -239,8 +235,9 @@
 #define USB_CFG_DEVICE_VERSION  0x00, 0x01
 /* Version number of the device: Minor number first, then major number.
  */
-#define USB_CFG_VENDOR_NAME     'C', 'r', 'a', 'p', 'L', 'a', 'b'
-#define USB_CFG_VENDOR_NAME_LEN 7
+#ifdef RUDY_VENDOR_NAME
+#define USB_CFG_VENDOR_NAME     RUDY_VENDOR_NAME
+#define USB_CFG_VENDOR_NAME_LEN RUDY_VENDOR_NAME_LEN
 /* These two values define the vendor name returned by the USB device. The name
  * must be given as a list of characters under single quotes. The characters
  * are interpreted as Unicode (UTF-16) entities.
@@ -249,14 +246,18 @@
  * obdev's free shared VID/PID pair. See the file USB-IDs-for-free.txt for
  * details.
  */
-#define USB_CFG_DEVICE_NAME     'R', 'U', 'D', 'Y'
-#define USB_CFG_DEVICE_NAME_LEN 4
+#endif /* RUDY_VENDOR_NAME */
+#ifdef RUDY_DEVICE_NAME
+#define USB_CFG_DEVICE_NAME     RUDY_DEVICE_NAME
+#define USB_CFG_DEVICE_NAME_LEN RUDY_DEVICE_NAME_LEN
 /* Same as above for the device name. If you don't want a device name, undefine
  * the macros. See the file USB-IDs-for-free.txt before you assign a name if
  * you use a shared VID/PID.
  */
-/*#define USB_CFG_SERIAL_NUMBER   'N', 'o', 'n', 'e' */
-/*#define USB_CFG_SERIAL_NUMBER_LEN   0 */
+#endif /* RUDY_DEVICE_NAME */
+#ifdef RUDY_SERIAL_NUMBER
+#define USB_CFG_SERIAL_NUMBER   RUDY_SERIAL_NUMBER
+#define USB_CFG_SERIAL_NUMBER_LEN   RUDY_SERIAL_NUMBER_LEN
 /* Same as above for the serial number. If you don't want a serial number,
  * undefine the macros.
  * It may be useful to provide the serial number through other means than at
@@ -264,14 +265,15 @@
  * to fine tune control over USB descriptors such as the string descriptor
  * for the serial number.
  */
-#define USB_CFG_DEVICE_CLASS        0xff
-#define USB_CFG_DEVICE_SUBCLASS     0
+#endif /* RUDY_SERIAL_NUMBER */
+#define USB_CFG_DEVICE_CLASS        RUDY_DEVICE_CLASS
+#define USB_CFG_DEVICE_SUBCLASS     RUDY_DEVICE_SUBCLASS
 /* See USB specification if you want to conform to an existing device class.
  * Class 0xff is "vendor specific".
  */
-#define USB_CFG_INTERFACE_CLASS     0
-#define USB_CFG_INTERFACE_SUBCLASS  0
-#define USB_CFG_INTERFACE_PROTOCOL  0
+#define USB_CFG_INTERFACE_CLASS     RUDY_INTERFACE_CLASS
+#define USB_CFG_INTERFACE_SUBCLASS  RUDY_INTERFACE_SUBCLASS
+#define USB_CFG_INTERFACE_PROTOCOL  RUDY_INTERFACE_PROTOCOL
 /* See USB specification if you want to conform to an existing device class or
  * protocol. The following classes must be set at interface level:
  * HID class is 3, no subclass and protocol required (but may be useful!)
@@ -342,18 +344,16 @@
  * };
  */
 
-//#define USB_CFG_DESCR_PROPS_DEVICE                  USB_PROP_IS_DYNAMIC
-//#define USB_CFG_DESCR_PROPS_CONFIGURATION           USB_PROP_IS_DYNAMIC
-#define USB_CFG_DESCR_PROPS_DEVICE                  0
-#define USB_CFG_DESCR_PROPS_CONFIGURATION           0
-#define USB_CFG_DESCR_PROPS_STRINGS                 0
-#define USB_CFG_DESCR_PROPS_STRING_0                0
-#define USB_CFG_DESCR_PROPS_STRING_VENDOR           0
-#define USB_CFG_DESCR_PROPS_STRING_PRODUCT          0
-#define USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER    0
-#define USB_CFG_DESCR_PROPS_HID                     0
-#define USB_CFG_DESCR_PROPS_HID_REPORT              0
-#define USB_CFG_DESCR_PROPS_UNKNOWN                 0
+#define USB_CFG_DESCR_PROPS_DEVICE                  RUDY_DESCR_PROPS_DEVICE
+#define USB_CFG_DESCR_PROPS_CONFIGURATION           RUDY_DESCR_PROPS_CONFIGURATION
+#define USB_CFG_DESCR_PROPS_STRINGS                 RUDY_DESCR_PROPS_STRINGS
+#define USB_CFG_DESCR_PROPS_STRING_0                RUDY_DESCR_PROPS_STRING_0
+#define USB_CFG_DESCR_PROPS_STRING_VENDOR           RUDY_DESCR_PROPS_STRING_VENDOR
+#define USB_CFG_DESCR_PROPS_STRING_PRODUCT          RUDY_DESCR_PROPS_STRING_PRODUCT
+#define USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER    RUDY_DESCR_PROPS_STRING_SERIAL_NUMBER
+#define USB_CFG_DESCR_PROPS_HID                     RUDY_DESCR_PROPS_HID
+#define USB_CFG_DESCR_PROPS_HID_REPORT              RUDY_DESCR_PROPS_HID_REPORT
+#define USB_CFG_DESCR_PROPS_UNKNOWN                 RUDY_DESCR_PROPS_UNKNOWN
 
 
 //#define usbMsgPtr_t unsigned short
