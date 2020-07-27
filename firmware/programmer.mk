@@ -1,0 +1,1 @@
+AVRDUDE_PROGRAMMER = -c usbasp

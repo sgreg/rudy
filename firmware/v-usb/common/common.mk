@@ -61,7 +61,12 @@ CFLAGS += -g -Os -std=gnu99 $(INCLUDES)\
 ASFLAGS = -Wa,-adhlms=$(<:.c=.lst),-gstabs 
 ASFLAGS_ASM = -Wa,-gstabs 
 LDFLAGS = -Wl,-Map=$(PROGRAM).map,--cref
-AVRDUDE_FLAGS = -p $(MCU) -c usbasp
+
+# Include programmer.mk relative to $(COMMON) to make sure paths are
+# correct in case there are subdirectories (i.e. the reason $(COMMON)
+# exists in the first place)
+include $(COMMON)/../../programmer.mk
+AVRDUDE_FLAGS = -p $(MCU) $(AVRDUDE_PROGRAMMER)
 
 
 .PRECIOUS : %.elf %.o
