@@ -26,9 +26,9 @@
  * Example 01: Hello USB
  *      Do nothing but being a dummy USB device.
  *      Once plugged in, the device should show up in the syslog and lsusb
+ *      ..that's really it.
  *
  */
-#include <string.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -37,6 +37,10 @@
 
 /**
  * V-USB setup callback function.
+ *
+ * Called from within V-USB itself to handle a SETUP packet.
+ * This device here doesn't do anything, so neither will this function here,
+ * but V-USB references it either way, so it needs to exist.
  */
 uchar
 usbFunctionSetup(uchar data[8] __attribute__((unused)))
@@ -45,17 +49,30 @@ usbFunctionSetup(uchar data[8] __attribute__((unused)))
     return 0;
 }
 
+/*
+ * Let's get going..
+ */
 int
 main(void)
 {
+    /* Disconnect and reconnect USB to enforce device re-enumeration */
     usbDeviceDisconnect();
     _delay_ms(300);
     usbDeviceConnect();
-    usbInit();
 
+    /* Set up USB and enable interrupts */
+    usbInit();
     sei();
+
+    /* Loop forever */
     while (1) {
+        /*
+         * usbPoll() needs to be called periodically (at least every 50ms),
+         * or else the USB connection times out and is dropped. But nothing
+         * else is going on in here, so we can easily delay a little while.
+         */
         usbPoll();
+        _delay_ms(30);
     }
 
     return 0;

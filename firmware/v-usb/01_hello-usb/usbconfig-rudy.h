@@ -18,8 +18,8 @@
 #define RUDY_DEVICE_NAME_LEN 4
 
 // comment out to not have one
-//#define RUDY_SERIAL_NUMBER 'N', 'o', 'p', 'e'
-//#define RUDY_SERIAL_NUMBER_LEN 4
+#define RUDY_SERIAL_NUMBER 'H', 'e', 'l', 'l', 'o', ' ', 'U', 'S', 'B'
+#define RUDY_SERIAL_NUMBER_LEN 9
 
 #define RUDY_DEVICE_CLASS 0xff
 #define RUDY_DEVICE_SUBCLASS 0x00
