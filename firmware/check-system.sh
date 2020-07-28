@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # RUDY - the Random USB Device
 # Check System script to verify if the required tools are installed
@@ -38,16 +38,27 @@
 #   ./check-system.sh
 #
 
-# Check if required tools exist
-echo -n "Checking if tools are available... "
+# We might need to know what Linux distribution we're running on later,
+# since Debian based ones use different package names than e.g. Red Hat
+# based ditros. So let's check /etc/*release files for hints on that.
+if grep -qEi 'debian|buntu|mint' /etc/*release 2>/dev/null ; then
+    DISTRO="Debian"
+elif grep -qEi 'fedora|redhat|centos' /etc/*release 2>/dev/null ; then
+    DISTRO="Red Hat"
+else
+    DISTRO="Other"
+fi
 
-# Which we can assume they do if the system finds their executable's path
+# Check if required tools exist..
+echo -n "Checking if tools are available... "
+# ..which we can assume they do if the system finds their executable's path
 MAKE="$(which make 2>/dev/null)"
 GCC="$(which avr-gcc 2>/dev/null)"
 BINUTILS="$(which avr-objcopy 2>/dev/null)"
 AVRDUDE="$(which avrdude 2>/dev/null)"
 
-# Store missing package names if necessary
+# Let's get through those results one by one and chain
+# the missing package names together if necessary
 missing=""
 
 # Check if make executable was found
@@ -59,12 +70,10 @@ fi
 # Check if avr-gcc executable was found
 if [ -z "$GCC" ] ; then
     # Nope.
-    # Check if this is a .deb file based distribution (Debian, *buntu, Mint)
-    if grep -qEi 'debian|buntu|mint' /etc/*release 2>/dev/null ; then
-        # Yes, in that case the package name is gcc-avr
+    # Check if this is a Debian based distro to get the package name right
+    if [ "$DISTRO" == "Debian" ] ; then
         missing+="gcc-avr "
     else
-        # No, in that case the package name (presumably) is avr-gcc
         missing+="avr-gcc "
     fi
 
@@ -74,7 +83,11 @@ fi
 
 # Repeat for binutils..
 if [ -z "$BINUTILS" ] ; then
-    missing+="avr-binutils "
+    if [ "$DISTRO" == "Debian" ] ; then
+        missing+="binutils-avr "
+    else
+        missing+="avr-binutils "
+    fi
 fi
 
 # ..and AVRDUDE
@@ -94,17 +107,15 @@ else
 
     # If this is a Debian or Red Hat based distribution, offer to isntall
     # the packages right away via apt-get / dnf
-    if grep -qEi 'debian|buntu|mint' /etc/*release 2>/dev/null ; then
-        distro_base="Debian"
+    if [ "$DISTRO" == "Debian" ] ; then
         package_manager="apt-get"
-    elif grep -qEi 'fedora|redhat|centos' /etc/*release 2>/dev/null ; then
-        distro_base="Red Hat"
+    elif [ "$DISTRO" == "Red Hat" ] ; then
         package_manager="dnf"
     fi
 
     # ..assuming the package manager exists, which it probably should?
     if [ -n "$package_manager" ] && [ -n "$(which $package_manager 2>/dev/null)" ] ; then
-        echo "You seem to run a $distro_base based distribution, would you like to run"
+        echo "You seem to run a $DISTRO based distribution, would you like to run"
         echo "    sudo $package_manager install $missing"
         read -p "right away? [Y/n] " choice
 
