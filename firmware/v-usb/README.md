@@ -5,7 +5,8 @@ This is a collection of examples that will turn RUDY into a USB device using the
 
 ## List of Examples
 
-- `01_hello-usb` a dummy USB device that will simply just show up as such in the system, but doesn't have any actual funcionality
+- [`01_hello-usb`](01_hello-usb/) a dummy USB device that will simply just show up as such in the system, but doesn't have any actual funcionality
+- [`02_usb-led`](02_usb-led/) controlling an LED via USB to turn it on, off, or to a specified PWM value, including Python script to communicate with it
 
 For additional information on the examples themselves, check their individual directories.
 
