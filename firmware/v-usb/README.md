@@ -8,6 +8,7 @@ This is a collection of examples that will turn RUDY into a USB device using the
 - [`01_hello-usb`](01_hello-usb/) a dummy USB device that will simply just show up as such in the system, but doesn't have any actual functionality
 - [`02_usb-led`](02_usb-led/) controlling an LED via USB to turn it on, off, or to a specified PWM value, including Python script to communicate with it
 - [`03_caesar`](03_caesar/) sending messages from a Python script to the USB device and receiving them back "encrypted" via [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
+- [`04_midi`](04_midi/) a USB MIDI device that uses analog-to-ditigal conversion to turn sensor values into MIDI notes
 
 For additional information on the examples themselves, check their individual directories.
 
