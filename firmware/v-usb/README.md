@@ -17,3 +17,36 @@ To compile and flash the examples, please see the general instructions in [the p
 
 If the examples don't have any specific build instructions themselves, it means that there's nothing different about them and the common compiling and flashing instructions apply.
 
+## Running Control Application
+
+Some of the examples come with a host-side control application in form of a Python script, for example the [USB LED Example](02_usb-led). The script themselves require Python3 and the [PyUSB module](https://github.com/pyusb/pyusb) installed. PyUSB can be usually installed via your Linux distribution's package manager, or via `pip install pyusb`.
+
+In order to run the script, the user must have read/write access to the USB device itself, which usually won't be the case out of te box, or else the script will fail to run with something like `ValueError: The device has no langid`. There are two ways to get this working:
+
+1. run the scripts as root via `sudo`
+2. add a `udev` rule for the device
+
+While the first option surely is the easy option to make it work, it's recommended to go for the second option.
+
+### Add udev Rule
+
+To add a `udev` rule, a rule file needs to be located in `/etc/udev/rules.d/` with the following content:
+```
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="b00b", MODE="0666"
+```
+
+The rule makes sure that every USB device with a VID/PID combination of 0x1209/0xb00b (i.e. the [official id pair](http://pid.codes/1209/B00B/) for RUDY) will have its permission set to `0666`, i.e. read/write permission for everyone.
+
+The file name itself is usually in a form of `xx-something.rules`, with `xx` being a number to enforce the run order (as the rules are processed in alphabetical order). For RUDY, the file could be called `50-rudy.rules`, and you either use and editor to create the file (needs `sudo` to write in that directory), or `echo` and `tee` it there:
+```
+$ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="b00b", MODE="0666"' |sudo tee /etc/udev/rules.d/50-rudy.rules
+```
+
+Once the file is added to `/etc/udev/rules.d`, reload the rules.
+```
+$ sudo udevadm control --reload-rules
+$ sudo udevadm trigger
+```
+
+You should now be able to run the host-side scripts successfully.
+
