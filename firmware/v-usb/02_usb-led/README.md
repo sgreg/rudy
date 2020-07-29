@@ -6,7 +6,7 @@ This example is split into a [`device/`](device/) directory that has the firmwar
 
 ## Set it up
 
-The device is set up the same way as the [bare metal Blinky example](../../bare-metal/01_blinky/), with the LED expected at GPIO port PD5 / pin 11 of the microcontroller. It's a good idea to add a [current-limiting resistor](https://www.sparkfun.com/tutorials/219) in series with the LED to lower the rist of accidentally destroying it. The value of that resistor depends on the LED itself, but a good starting value would be for example 120 &Omega;.
+The device is set up the same way as the [bare metal Blinky example](../../bare-metal/01_blinky/), with the LED expected at GPIO port PD5 / pin 11 of the microcontroller. It's a good idea to add a [current-limiting resistor](https://www.sparkfun.com/tutorials/219) in series with the LED to lower the risk of accidentally destroying it. The value of that resistor depends on the LED itself, but a good starting value would be for example 120 &Omega;.
 
 ![Breadboard arrangements for USB LED example](../../../images/atmega-led-resistor_bb.png)
 

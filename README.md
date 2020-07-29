@@ -1,14 +1,15 @@
 # RUDY - the Random USB Device
 
-RUDY started out as a test and play-around device for USB development using the [Objecvtive Development V-USB library](https://www.obdev.at/products/vusb/index.html), but also serves as standard ATmega328 development board.
+RUDY started out as a test and play-around device for USB development using the [Objective Development V-USB library](https://www.obdev.at/products/vusb/index.html), but also serves as standard ATmega328 development board.
 
 ![RUDY](images/rudy.jpg)
 
 ## Features
 
-- breadboard-friendly protoyping board, taking up only one additional row on each side compared to a standalone ATmega328 microcontroller
-- Arduino complatible ..ish, I mean it's an ATmega328, so of course Arduino Uno code runs on it
+- breadboard-friendly prototyping board, taking up only one additional row on each side compared to a standalone ATmega328 microcontroller
+- Arduino compatible ..ish, I mean it's an ATmega328, so of course Arduino Uno code runs on it
 - USB port wired to the ATmega328 for out-of-the-box USB functionality via the V-USB library
+- own, dedicated [USB VID/PID pair](http://pid.codes/1209/B00B/) thanks to [pid.codes](http://pid.codes/)
 - USB-powered with additional 3.3V voltage regulator on board to select either 5.0 or 3.3V supply voltage
 - clocked by 12.0 MHz crystal to comply with V-USB and also 3.3V supply voltage
 - 6-pin ISP header for programming, with additional option to power the board directly from the programmer
@@ -27,7 +28,7 @@ All hardware is released under the [CERN Open Hardware License v1.2](https://ohw
 
 ## Firmware
 
-Again, RUDY is primarily a development board, and as such is there for _your_ firmware. But well, everything and everyone has to start somewhere, so the [`firmware/`](firmware/`) directory has a (still-to-grow) collection of example projects, both using the V-USB library and using RUDY as regular, ATmega328 microcontroller board.
+Again, RUDY is primarily a development board, and as such is there for _your_ firmware. But well, everything and everyone has to start somewhere, so the [`firmware/`](firmware/) directory has a (still-to-grow) collection of example projects, both using the V-USB library and using RUDY as regular, ATmega328 microcontroller board.
 
 All example source code is released under the [MIT License](https://choosealicense.com/licenses/mit/).
 

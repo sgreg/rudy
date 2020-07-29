@@ -19,7 +19,7 @@ While the focus of the examples differs, and their build environment is set up s
 
 To make sure you have everything you need installed, the [`check-system.sh`](check-system.sh) script is provided. It will check if all required executables are present on the system, and if so, compile a little dummy AVR C file and see if that succeeds. If all goes well, it means you're ready to get going with the examples, otherwise it will tell you what packages you're most likely missing.
 
-If you're using a Debian based distribution (like Debian itself, Ubuntu or its variants, Linux Mint, or Raspbian) or a Red Hat based distribution (like Red Hat, Fedora, or CentOS), the script will even offer to instal the missing packages right away. It will ask first though, so nothing is going to just happen automatically.
+If you're using a Debian based distribution (like Debian itself, Ubuntu or its variants, Linux Mint, or Raspbian) or a Red Hat based distribution (like Red Hat, Fedora, or CentOS), the script will even offer to install the missing packages right away. It will ask first though, so nothing is going to just happen automatically.
 
 ### Installing manually
 
@@ -48,7 +48,6 @@ As for Windows, I'm afraid you're on your own, and I'm not sure will this even w
 
 (Comments and contributions on improving and extending this are very welcome!)
 
-### Docker
 
 ## Building the Examples
 
@@ -72,6 +71,8 @@ That's it.
 ## Powering RUDY
 
 As RUDY can be powered from both USB and the programmer itself, make sure the power arrangements are set up properly. The power itself is set via a jumper, and to avoid any misconfigurations, it's best to only ever keep one single jumper around.
+
+**Note:** the pictures below show two different devices with different LED setup each - the LEDs do not change colors depending on the supply voltage option!
 
 ### Powering RUDY via USB port
 
@@ -125,7 +126,7 @@ Each example acts of course differently, so please refer to each example's own d
 
 ### Other Makefile targets
 
-In addition to compiling and flashing, the `make` supports a few additional targets:
+In addition to compiling and flashing, `make` supports a few additional targets:
 
 - `clean` removes all intermediate compiled object files (`.o` files), which can be useful to make sure the code is built from scratch (oftentimes needed if for example a header file was changed).
 - `distclean` runs `clean` and in addition also removes the fully compiled executables, HEX files and map file. This essentially returns the example directory to its clean, initial content state.

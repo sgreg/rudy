@@ -5,7 +5,7 @@ This is a collection of examples that will turn RUDY into a USB device using the
 
 ## List of Examples
 
-- [`01_hello-usb`](01_hello-usb/) a dummy USB device that will simply just show up as such in the system, but doesn't have any actual funcionality
+- [`01_hello-usb`](01_hello-usb/) a dummy USB device that will simply just show up as such in the system, but doesn't have any actual functionality
 - [`02_usb-led`](02_usb-led/) controlling an LED via USB to turn it on, off, or to a specified PWM value, including Python script to communicate with it
 
 For additional information on the examples themselves, check their individual directories.
@@ -21,7 +21,7 @@ If the examples don't have any specific build instructions themselves, it means 
 
 Some of the examples come with a host-side control application in form of a Python script, for example the [USB LED Example](02_usb-led). The script themselves require Python3 and the [PyUSB module](https://github.com/pyusb/pyusb) installed. PyUSB can be usually installed via your Linux distribution's package manager, or via `pip install pyusb`.
 
-In order to run the script, the user must have read/write access to the USB device itself, which usually won't be the case out of te box, or else the script will fail to run with something like `ValueError: The device has no langid`. There are two ways to get this working:
+In order to run the script, the user must have read/write access to the USB device itself, which usually won't be the case out of the box, or else the script will fail to run with something like `ValueError: The device has no langid`. There are two ways to get this working:
 
 1. run the scripts as root via `sudo`
 2. add a `udev` rule for the device
