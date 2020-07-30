@@ -10,6 +10,7 @@ This is a collection of examples that will turn RUDY into a USB device using the
 - [`03_caesar`](03_caesar/) sending messages from a Python script to the USB device and receiving them back "encrypted" via [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 - [`04_midi`](04_midi/) a USB MIDI device that uses analog-to-ditigal conversion to turn sensor values into MIDI notes
 - [`05_vusb-hid-mouse`](05_vusb-hid-mouse/) the [V-USB HID Mouse example](https://github.com/obdev/v-usb/tree/master/examples/hid-mouse) that acts as a common mouse that moves in circles, adjusted for RUDY
+- [`06_usbasp`](06_usbasp/) turning RUDY into the [USBasp AVR programmer](https://www.fischl.de/usbasp/)
 
 For additional information on the examples themselves, check their individual directories.
 

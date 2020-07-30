@@ -98,7 +98,7 @@ make program
 from within the example's directory (same place you ran `make` to compile it).
 
 ### Setting up the programmer
-The build system itself is by default set up to use the [USBasp programmer](https://www.fischl.de/usbasp/), as it is a cheap, open source programmer that does the job very well. Plus, RUDY itself can be programmed to act as USBasp itself.
+The build system itself is by default set up to use the [USBasp programmer](https://www.fischl.de/usbasp/), as it is a cheap, open source programmer that does the job very well. Plus, [RUDY can be programmed to act as USBasp itself](v-usb/06_usbasp/).
 
 If you're using a different programmer, adjust the command line settings in the [`programmer.mk`](programmer.mk) file within this directory.
 
