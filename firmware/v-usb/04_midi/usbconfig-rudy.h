@@ -1,6 +1,5 @@
-#ifndef RUDY_USBCONFIG_DEFAULT_H
-#define RUDY_USBCONFIG_DEFAULT_H
-#warning "No project-specific usbconfig-rudy.h found, using default one"
+#ifndef RUDY_USBCONFIG_H
+#define RUDY_USBCONFIG_H
 
 
 #define RUDY_IMPLEMENT_FN_READ 0
@@ -19,24 +18,24 @@
 #define RUDY_DEVICE_NAME_LEN 4
 
 // comment out to not have one
-#define RUDY_SERIAL_NUMBER 'N', 'o', 'p', 'e'
-#define RUDY_SERIAL_NUMBER_LEN 4
+#define RUDY_SERIAL_NUMBER 'M', 'I', 'D', 'I', ' ', 'E', 'x', 'a', 'm', 'p', 'l', 'e'
+#define RUDY_SERIAL_NUMBER_LEN 12
 
-#define RUDY_DEVICE_CLASS 0xff
+#define RUDY_DEVICE_CLASS 0x00
 #define RUDY_DEVICE_SUBCLASS 0x00
 
-#define RUDY_INTERFACE_CLASS     0
-#define RUDY_INTERFACE_SUBCLASS  0
+#define RUDY_INTERFACE_CLASS     1 /* Audio class */
+#define RUDY_INTERFACE_SUBCLASS  3 /* MIDI streaming */
 #define RUDY_INTERFACE_PROTOCOL  0
 
-#define RUDY_HAVE_INTRIN_ENDPOINT   0
+#define RUDY_HAVE_INTRIN_ENDPOINT   1
 #define RUDY_HAVE_INTRIN_ENDPOINT3  0
 #define RUDY_INTR_POLL_INTERVAL     10
 
 #define RUDY_HID_REPORT_DESCRIPTOR_LENGTH   0
 
-#define RUDY_DESCR_PROPS_DEVICE                  0
-#define RUDY_DESCR_PROPS_CONFIGURATION           0
+#define RUDY_DESCR_PROPS_DEVICE                  USB_PROP_IS_DYNAMIC
+#define RUDY_DESCR_PROPS_CONFIGURATION           USB_PROP_IS_DYNAMIC
 #define RUDY_DESCR_PROPS_STRINGS                 0
 #define RUDY_DESCR_PROPS_STRING_0                0
 #define RUDY_DESCR_PROPS_STRING_VENDOR           0
@@ -46,4 +45,4 @@
 #define RUDY_DESCR_PROPS_HID_REPORT              0
 #define RUDY_DESCR_PROPS_UNKNOWN                 0
 
-#endif /* RUDY_USBCONFIG_DEFAULT_H */
+#endif /* RUDY_USBCONFIG_H */

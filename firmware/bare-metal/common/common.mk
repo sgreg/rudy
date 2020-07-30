@@ -1,6 +1,6 @@
 #
 # RUDY - the Random USB Device
-# Common Makefile definitions for V-USB examples
+# Common Makefile definitions for bare metal examples
 #
 # Copyright (C) 2020 Sven Gregori <sven@craplab.fi>
 #
@@ -31,20 +31,6 @@ F_CPU = 12000000
 # here is located) relative to the example project source files.
 # If not defined in the project's Makefile, fall back to ../common
 COMMON ?= ../common
-
-USBDRV_SRC = $(COMMON)/usbdrv/usbdrv.c
-USBDRV = usbdrv.o
-USBDRVASM_SRC = $(COMMON)/usbdrv/usbdrvasm.S
-USBDRVASM = usbdrvasm.o
-
-USBCONFIG = usbconfig-rudy.h
-
-ifeq (,$(wildcard $(USBCONFIG)))
-USBCONFIG = $(COMMON)/usbconfig-rudy.h
-endif
-
-BUILD_OBJS = $(OBJS) $(USBDRV) $(USBDRVASM)
-
 
 CC = avr-gcc
 OBJCOPY = avr-objcopy
@@ -77,19 +63,13 @@ $(PROGRAM).hex: $(PROGRAM).elf
 	$(OBJCOPY) -O ihex -R .eeprom $< $@
 	@$(SIZE) $^
 
-$(PROGRAM).elf: $(BUILD_OBJS)
+$(PROGRAM).elf: $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
-.c.o: $(USBCONFIG)
+.c.o:
 	$(CC) -c $(CFLAGS) $(ASFLAGS) $< -o $@
 
 .S.o:
-	$(CC) -c $(CFLAGS) -x assembler-with-cpp $(ASFLAGS_ASM) $< -o $@
-
-$(USBDRV): $(USBDRV_SRC) $(USBCONFIG)
-	$(CC) -c $(CFLAGS) $< -o $@
-
-$(USBDRVASM): $(USBDRVASM_SRC) $(USBCONFIG)
 	$(CC) -c $(CFLAGS) -x assembler-with-cpp $(ASFLAGS_ASM) $< -o $@
 
 burn-fuse:
@@ -100,7 +80,7 @@ program:
 	$(AVRDUDE) $(AVRDUDE_FLAGS) -U flash:w:$(PROGRAM).hex
 
 clean:
-	rm -f $(BUILD_OBJS)
+	rm -f $(OBJS)
 	rm -f $(OBJS:.o=.lst)
 
 distclean: clean

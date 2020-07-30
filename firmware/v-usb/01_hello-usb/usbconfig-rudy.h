@@ -18,8 +18,8 @@
 #define RUDY_DEVICE_NAME_LEN 4
 
 // comment out to not have one
-//#define RUDY_SERIAL_NUMBER 'N', 'o', 'p', 'e'
-//#define RUDY_SERIAL_NUMBER_LEN 4
+#define RUDY_SERIAL_NUMBER 'H', 'e', 'l', 'l', 'o', ' ', 'U', 'S', 'B'
+#define RUDY_SERIAL_NUMBER_LEN 9
 
 #define RUDY_DEVICE_CLASS 0xff
 #define RUDY_DEVICE_SUBCLASS 0x00
@@ -30,6 +30,9 @@
 
 #define RUDY_HAVE_INTRIN_ENDPOINT   0
 #define RUDY_HAVE_INTRIN_ENDPOINT3  0
+#define RUDY_INTR_POLL_INTERVAL     10
+
+#define RUDY_HID_REPORT_DESCRIPTOR_LENGTH   0
 
 #define RUDY_DESCR_PROPS_DEVICE                  0
 #define RUDY_DESCR_PROPS_CONFIGURATION           0
