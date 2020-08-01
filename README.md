@@ -7,7 +7,7 @@ RUDY started out as a test and play-around device for USB development using the 
 ## Features
 
 - breadboard-friendly prototyping board, taking up only one additional row on each side compared to a standalone ATmega328 microcontroller
-- Arduino compatible ..ish, I mean it's an ATmega328, so of course Arduino Uno code runs on it
+- Arduino compatible [..ish](firmware/arduino/)
 - USB port wired to the ATmega328 for out-of-the-box USB functionality via the V-USB library
 - own, dedicated [USB VID/PID pair](http://pid.codes/1209/B00B/) thanks to [pid.codes](http://pid.codes/)
 - USB-powered with additional 3.3V voltage regulator on board to select either 5.0 or 3.3V supply voltage
