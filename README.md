@@ -4,6 +4,12 @@ RUDY started out as a test and play-around device for USB development using the 
 
 ![RUDY](images/rudy.jpg)
 
+
+## Links
+- [Official Website](https://rudy.craplab.fi/)
+- [Hackaday.io Project Page](https://hackaday.io/project/174101-rudy)
+
+
 ## Features
 
 - breadboard-friendly prototyping board, taking up only one additional row on each side compared to a standalone ATmega328 microcontroller
@@ -20,15 +26,14 @@ RUDY started out as a test and play-around device for USB development using the 
 
 ## Hardware
 
-RUDY is primarily the hardware, so all the design file for KiCad along with the schematic as PDF and Gerber files are found in the [`hardware/`](hardware/rudy/) directory.
+RUDY is primarily a hardware project, so all the design file for KiCad along with the schematic as PDF and Gerber files are found in the [`hardware/`](hardware/rudy/) directory. And if you want to go straight ahead and build your own board, [the PCB is available from OSH Park](https://oshpark.com/projects/RQf8bXd4).
 
-As RUDY can theoretically function as an [USBasp programmer](https://www.fischl.de/usbasp/), there's also [an adapter board](hardware/usbasp-adapter) available.
-
-All hardware is released under the [CERN Open Hardware License v1.2](https://ohwr.org/project/licenses/wikis/cern-ohl-v1.2)
+As RUDY can theoretically function as an [USBasp programmer](https://www.fischl.de/usbasp/), there's also [an adapter board](hardware/usbasp-adapter) available - and is also [available from OSH Park](https://oshpark.com/projects/pueZ0qkO)
 
 ## Firmware
 
 Again, RUDY is primarily a development board, and as such is there for _your_ firmware. But well, everything and everyone has to start somewhere, so the [`firmware/`](firmware/) directory has a (still-to-grow) collection of example projects, both using the V-USB library and using RUDY as regular, ATmega328 microcontroller board.
 
-All example source code is released under the [MIT License](https://choosealicense.com/licenses/mit/).
+## License
+RUDY is fully open source. All hardware files are released under the [CERN Open Hardware License v1.2](https://ohwr.org/project/licenses/wikis/cern-ohl-v1.2), and all example source code is released under the [MIT License](https://choosealicense.com/licenses/mit/).
 
