@@ -6,10 +6,14 @@ As RUDY is a simple ATmega328 development board, there's nothing too magical in 
 
 RUDY, being _the Random USB Device_, was initially built for use the [V-USB library](https://www.obdev.at/products/vusb/index.html), but using the library itself is of course fully optional. As V-USB adds certain complexity to the build system and code itself, The examples are split up in different folders, so focus can be put on either using RUDY as a regular ATmega328 device, and using it specifically as a USB device.
 
-- [`bare-metal/`](bare-metal/) contains examples to use RUDY as a regular ATmega328 device
 - [`v-usb/`](v-usb/) contains example to use RUDY as USB device, with main focus on the USB part itself
+- [`bare-metal/`](bare-metal/) contains examples to use RUDY as a regular ATmega328 device
+- [`arduino/`](arduino/) contains examples to use RUDY within the Arduino ecosystem
 
 More information on the specifics of all that can be found inside those directories.
+
+Note that Arduino support is more a lucky side effect of using the ATmega328 here, and not what RUDY is really aiming at. But since it's possible, I figured: why not. However, the main instructions here are for using RUDY as bare metal / bare metal + V-USB device, so if you're planning on using it in the Arduino ecosystem, you can probably skip most of the instructions here.
+
 
 ## Requirements
 
