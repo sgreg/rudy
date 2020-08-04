@@ -12,7 +12,7 @@ The device is set up the same way as the [bare metal Blinky example](../../bare-
 
 ## Build and flash it
 
-The general instruction in the [parent directory's README](../). apply here, but the firmware itself is found in the [`device/`](device/) directory, so the `make` commands need to be run from within that directory instead of the example's main directory.
+The general instruction in the [parent directory's README](../) apply here, except the firmware itself is found in the [`device/`](device/) directory, so the `make` commands need to be run from within that directory instead of the example's main directory.
 
 
 ## Use it

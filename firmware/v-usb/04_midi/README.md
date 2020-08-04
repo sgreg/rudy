@@ -6,7 +6,7 @@ Periodically reads sensor values from the ATmega's ADC and converts the read val
 
 ## Some details
 
-There are 127 MIDI notes available, but the lower and higher range of those notes is not all that useful in a random "music instrument" like this, so we'll limit the range of actually used notes to 28 (E1) and 91 (G6). As the Atmega328 uses a 10-bit ADC, we simply take only the top 6 bit, which gives us 64 values that aren't too sensitive to small changes in the sensor readings, and add an offset of 28 to them.
+The MIDI standard provides us with 127 possibles notes to play, but in practice, the lower and higher end of that spectrum wasn't all that pleasant to listen to. To still make use of the ADC's full range, the MIDI notes will be limited to a more useful range in the center of the spectrum - namely from note 28 (E1) to note 91 (G6). As the Atmega328 uses a 10-bit ADC, we simply take only the top 6 bit, which gives us 64 values that aren't too sensitive to small changes in the sensor readings, and add an offset of 28 to them.
 
 For example:
 ```
@@ -27,13 +27,13 @@ Any ADC value between 704 and 719 (inclusive) is going to end up as a C4 note. D
 
 The device is set up to expect a sensor connected to analog channel 0, i.e. `ADC0` / `PC0` on pin 23. An example sensor could be a simple light-dependent resistor (LDR), also known as a [photoresistor](https://en.wikipedia.org/wiki/Photoresistor) or simply a light sensor, but practically any [voltage divider](https://en.wikipedia.org/wiki/Voltage_divider) with a variable resistor will work - for example a [thermistor](https://en.wikipedia.org/wiki/Thermistor) as temperature sensor, or even just a regular potentiometer.
 
-Alternatively, a sensor that directly outputs its voltage could be directly connected to the ADC pin without the need of a voltage divider. Sensors like ADXL335 accelerometer or an LM35 temperature sensor.
+Alternatively, a sensor that directly outputs its voltage - like an ADXL335 accelerometer or LM35 temperature sensor - could be connected straight to the ADC pin without the need of a voltage divider.
 
 But here's what a set up with a variable resistor and voltage divider could look like:
 
 ![Breadboard arrangements for USB MIDI example](../../../images/atmega-ldr-resistor_bb.png)
 
-In this case, the brighter the light is shining to the photoresistor, the lower its resistance and therefore the higher the voltage the ADC will read. Higher voltage results in a higher value read from it, so in other words: the brighter the light, the higher the note it will send - and vice versa.
+In this case, the brighter the light is shining onto the photoresistor, the lower its resistance will be, and therefore the higher the voltage the ADC will read. A higher voltage results in a higher value received from the ADC which determines the MIDI note, so in other words: the brighter the light, the higher the note it will send - and vice versa.
 
 ## Use it
 

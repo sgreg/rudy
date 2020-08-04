@@ -326,6 +326,11 @@ adc_init(void)
  * for examples using a moving average. But to keep the focus in this
  * example on setting up a sample USB MIDI device, this will do fine.
  *
+ * Note that this only cares for the top 8 bits of the ADC value and
+ * fully ignores the lower two bits (only reads from ADCH and skips
+ * reading ADCL) as we're anyway mapping the value to a limited range
+ * of MIDI notes later on.
+ *
  * @return average value of ADC_SAMPLES samples
  */
 uint8_t
@@ -430,27 +435,24 @@ main(void)
                 adcval = adc_read();
 
                 /*
-                 * We retrieve the 8 highest bits in the 10-bit ADC reading
-                 * in the adc_read() function (since the ADLAR bit is set in
-                 * the ADMUX register, and we only read ADCH).
+                 * We retrieved the 8 highest bits of the analog-to-digital
+                 * conversion from adc_read(), so we have values in the range
+                 * of [0, 255]. As there are 127 MIDI notes, we could simply
+                 * divide the ADC value by 2 and play it. However, the lowest
+                 * and highest notes didn't feel very pleasant to listen to,
+                 * so it seems like a good idea to limit the range of actual
+                 * available notes a bit.
                  *
-                 * MIDI notes are in range [0, 127], our ADC value however
-                 * is in range [0, 255]. We could simply divide by 2 here,
-                 * but the lowest and highest tone pitches are not all that
-                 * pleasant to listen to.
+                 * If we ignore the bottom 2 bits of the ADC value, we'll end
+                 * up with a 6-bit value, giving us 64 possible notes, which
+                 * seems like a decent enough range for a simple MIDI device
+                 * like this. Now we only need to add an offset to shift it
+                 * more into the center range of the notes spectrum.
                  *
-                 * As alternative, we read the 6 highest bits here, giving
-                 * us a good stability and distinction between different
-                 * sensor values, and with 2^6 == 64 different tones, a
-                 * good playback range.
-                 *
-                 * To shift the notes more into the middle of the spectrum,
-                 * we add an offset of 29 and end up in a range from
-                 * 28 == E1 to (28 + 63) == 91 == G6
-                 *
-                 * Note that you might have to experiment with different
-                 * resistor values in the voltage divider to find a good
-                 * range for your surroundings and sensor itself.
+                 * After some soul searching, I've decided on the number 28,
+                 * as it puts natural notes on both ends of the spectrum.
+                 * This way we'll end up with an available MIDI notes range
+                 * of [28, 91], which translates to E1...G6.
                  */
                 note = ((adcval >> 2) & 0x3f) + 28;
 

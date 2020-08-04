@@ -2,7 +2,7 @@
 
 This is a collection of firmware examples to play around and explore RUDY with.
 
-As RUDY is a simple ATmega328 development board, there's nothing too magical in this code collection here and will also work with any other ATmega328 board - which is kinda the point of RUDY as a rapid prototyping board. However, the examples are laid out specifically for RUDY and its pin configuration, so you might have to adjust a few bits if you're planning to use them on different hardware.
+As RUDY is a simple ATmega328 development board, there's nothing too magical in this code collection here and will also work with any other ATmega328 board - which is kinda the point of RUDY as a rapid prototyping board. However, the examples are laid out specifically for RUDY and its hardware arrangements (like clock speed and V-USB pin configuration), so you might have to adjust a few bits if you're planning to use them on different hardware.
 
 RUDY, being _the Random USB Device_, was initially built for use the [V-USB library](https://www.obdev.at/products/vusb/index.html), but using the library itself is of course fully optional. As V-USB adds certain complexity to the build system and code itself, The examples are split up in different folders, so focus can be put on either using RUDY as a regular ATmega328 device, and using it specifically as a USB device.
 
@@ -13,6 +13,22 @@ RUDY, being _the Random USB Device_, was initially built for use the [V-USB libr
 More information on the specifics of all that can be found inside those directories.
 
 Note that Arduino support is more a lucky side effect of using the ATmega328 here, and not what RUDY is really aiming at. But since it's possible, I figured: why not. However, the main instructions here are for using RUDY as bare metal / bare metal + V-USB device, so if you're planning on using it in the Arduino ecosystem, you can probably skip most of the instructions here.
+
+
+## Table of Contents
+  * [Requirements](#requirements)
+    * [Installing via provided script](#installing-via-provided-script)
+    * [Installing manually](#installing-manually)
+  * [Building the Examples](#building-the-examples)
+  * [Powering RUDY](#powering-rudy)
+    * [Powering RUDY via USB port](#powering-rudy-via-usb-port)
+    * [Powering RUDY via the programmer](#powering-rudy-via-the-programmer)
+  * [Flashing the Firmware](#flashing-the-firmware)
+    * [Setting up the programmer](#setting-up-the-programmer)
+  * [Running the Examples](#running-the-examples)
+  * [Miscellaneous](#miscellaneous)
+    * [Other Makefile targets](#other-makefile-targets)
+    * [Troubleshooting](#troubleshooting)
 
 
 ## Requirements
@@ -31,7 +47,7 @@ To install all required packages depends on the Linux distribution you are using
 
 #### Debian / Ubuntu / Linux Mint / Raspbian / ...
 ```
-sudo apt install make gcc-avr avr-libc avr-binutils avrdude
+sudo apt install make gcc-avr avr-libc binutils-avr avrdude
 ```
 If `apt` doesn't exist, try `apt-get`.
 
@@ -40,7 +56,7 @@ If `apt` doesn't exist, try `apt-get`.
 sudo dnf install make avr-gcc avr-libc avr-binutils avrdude
 ```
 
-The main difference between Debian and Red Hat based systems is `gcc-avr` vs `avr-gcc` as package name for GCC.
+The main difference between Debian and Red Hat based systems is the tool / architecture order of the package names, like `gcc-avr` vs `avr-gcc` as package name for GCC.
 
 #### Other Linux distributions / operating systems
 
