@@ -35,5 +35,5 @@ As RUDY can theoretically function as an [USBasp programmer](https://www.fischl.
 Again, RUDY is primarily a development board, and as such is there for _your_ firmware. But well, everything and everyone has to start somewhere, so the [`firmware/`](firmware/) directory has a (still-to-grow) collection of example projects, both using the V-USB library and using RUDY as regular, ATmega328 microcontroller board.
 
 ## License
-RUDY is fully open source. All hardware files are released under the [CERN Open Hardware License v1.2](https://ohwr.org/project/licenses/wikis/cern-ohl-v1.2), and all example source code is released under the [MIT License](https://choosealicense.com/licenses/mit/).
+RUDY is fully open source. All hardware files are released under the [CERN Open Hardware License v1.2](https://ohwr.org/project/licenses/wikis/cern-ohl-v1.2), all example source code is released under the [MIT License](https://choosealicense.com/licenses/mit/), and all documentation within this git repository is provided under the terms of a [Creative Commons Attribution 4.0 International (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/).
 
