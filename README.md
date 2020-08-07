@@ -21,8 +21,11 @@ RUDY started out as a test and play-around device for USB development using the 
 - 6-pin ISP header for programming, with additional option to power the board directly from the programmer
 - power-indicating LEDs mounted under the IC, shining in a mysterious glow (oh yeah)
 - DIP28 ATmega328, allowing easy replacement if it ever gets fried (no no)
-- and of course: fully open source
+- fully open source and [certified as such](https://certification.oshwa.org/fi000002.html) by the [Open Source Hardware Association (OSHWA)](https://www.oshwa.org/)
 
+<p align="center">
+<a href="https://certification.oshwa.org/fi000002.html"><img src="images/oshwa.png" width="200" alt="[OSHW] FI000002" title="Finland Number Two!"></a>
+</p>
 
 ## Hardware
 
